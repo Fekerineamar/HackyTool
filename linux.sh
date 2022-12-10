@@ -1,13 +1,15 @@
 #!/bin/bash
 
-Green='\033[0;32m'
-NC='\033[0m' # No Color
-echo "{GREEN}Starting Tool!!{NC}"
-sleep 2
+Green='\033[0;32m' &&
+NC='\033[0m' &&
+printf "{Green}Starting Tool!!{NC}" &&
+sleep 3 &&
 sudo apt update && sudo apt upgrade -y &&
 sudo apt install python3 -y &&
 sudo apt install nmap -y &&
 wget https://go.dev/dl/go1.19.4.linux-amd64.tar.gz && 
+sudo rm -rf /usr/local/go && 
+sudo tar -C /usr/local -xzf go1.19.4.linux-amd64.tar.gz &&
 mkdir ~/.go &&
 echo "GOPATH=$HOME/.go" >> ~/.bashrc &&
 echo "export GOPATH" >> ~/.bashrc &&
