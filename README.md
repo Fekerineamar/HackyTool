@@ -3,7 +3,7 @@
 
 ## installation
 ```
-git https://github.com/Fekerineamar/HackyTool.git
+git clone https://github.com/Fekerineamar/HackyTool.git
 ```
 
 ```
