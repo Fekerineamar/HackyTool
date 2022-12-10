@@ -23,9 +23,9 @@ go install -v github.com/tomnomnom/gf@latest &&
 pip install dirsearch &&
 pip install uro && 
 pip install arjun &&
-cd ~/Desktop &&
 git clone --depth 1 https://github.com/sqlmapproject/sqlmap.git sqlmap-dev &&
 git clone https://github.com/devanshbatham/ParamSpider &&
 cd ParamSpider &&
-pip3 install -r requirements.txt
-echo "done :)!"
+pip3 install -r requirements.txt &&
+echo "{GREEN}Done :)!! Don't forget To follow me thanks!{NC}"
+sleep 2
