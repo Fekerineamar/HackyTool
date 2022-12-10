@@ -4,6 +4,7 @@ printf "\033[0;32mStarting Tool update & upgrade & installing go/python!!\033[0m
 sleep 3 &&
 sudo apt update && sudo apt upgrade -y &&
 sudo apt install python3 -y &&
+sudo apt install python3-pip &&
 sudo apt install nmap -y &&
 wget https://go.dev/dl/go1.19.4.linux-amd64.tar.gz && 
 sudo rm -rf /usr/local/go && 
@@ -24,9 +25,9 @@ go install -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei@latest &&
 go install -v github.com/projectdiscovery/httpx/cmd/httpx@latest &&
 go install -v github.com/Emoe/kxss@latest &&
 go install -v github.com/tomnomnom/gf@latest &&
-pip install dirsearch &&
-pip install uro && 
-pip install arjun &&
+pip3 install dirsearch &&
+pip3 install uro && 
+pip3 install arjun &&
 git clone --depth 1 https://github.com/sqlmapproject/sqlmap.git sqlmap-dev &&
 git clone https://github.com/devanshbatham/ParamSpider &&
 cd ParamSpider &&
