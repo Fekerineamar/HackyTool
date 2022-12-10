@@ -12,6 +12,7 @@ mkdir -p ~/.go &&
 echo "GOPATH=$HOME/.go" >> ~/.bashrc &&
 echo "export GOPATH" >> ~/.bashrc &&
 echo "PATH=\$PATH:\$GOPATH/bin" >> ~/.bashrc &&
+echo "PATH=\$PATH:/usr/local/go/bin" >> ~/.profile &&
 source ~/.bashrc &&
 sudo rm go1.19.4.linux-amd64.tar.gz;
 printf "\033[0;32mSuccessfully installed!! ** installing Tool! **\033[0m" &&
