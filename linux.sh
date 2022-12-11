@@ -30,10 +30,11 @@ pip install dirsearch &&
 pip install uro && 
 pip install arjun &&
 git clone https://github.com/1ndianl33t/Gf-Patterns &&
-mkdir ~/.gf &&
-mv Gf-Patterns/*.json ~/.gf &&
 git clone --depth 1 https://github.com/sqlmapproject/sqlmap.git sqlmap-dev &&
 git clone https://github.com/devanshbatham/ParamSpider &&
+git clone https://github.com/s0md3v/XSStrike.git &&
+mkdir ~/.gf &&
+mv Gf-Patterns/*.json ~/.gf &&
 cd ParamSpider &&
 pip3 install -r requirements.txt &&
 cd .. &&
