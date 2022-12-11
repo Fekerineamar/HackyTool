@@ -25,12 +25,17 @@ go install -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei@latest &&
 go install -v github.com/projectdiscovery/httpx/cmd/httpx@latest &&
 go install -v github.com/Emoe/kxss@latest &&
 go install -v github.com/tomnomnom/gf@latest &&
-pip3 install dirsearch &&
-pip3 install uro && 
-pip3 install arjun &&
+go install -v github.com/hahwul/dalfox/v2@latest &&
+pip install dirsearch &&
+pip install uro && 
+pip install arjun &&
+git clone https://github.com/1ndianl33t/Gf-Patterns &&
+mkdir ~/.gf &&
+mv Gf-Patterns/*.json ~/.gf &&
 git clone --depth 1 https://github.com/sqlmapproject/sqlmap.git sqlmap-dev &&
 git clone https://github.com/devanshbatham/ParamSpider &&
 cd ParamSpider &&
 pip3 install -r requirements.txt &&
+cd .. &&
 printf "\033[0;32mDone :)!! Don't forget To follow me thanks!\033[0m"
 sleep 2;
