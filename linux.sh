@@ -2,10 +2,10 @@
 
 printf "\033[0;32mStarting Tool update & upgrade & installing go/python!!\033[0m" &&
 sleep 3 &&
-sudo apt update && sudo apt upgrade -y &&
-sudo apt install python3 -y &&
-sudo apt install python3-pip &&
-sudo apt install nmap -y &&
+sudo apt update && sudo apt -y upgrade &&
+sudo apt install -y python3 &&
+sudo apt install -y python3-pip &&
+sudo apt install -y nmap &&
 wget https://go.dev/dl/go1.19.4.linux-amd64.tar.gz && 
 sudo rm -rf /usr/local/go && 
 sudo tar -C /usr/local -xzf go1.19.4.linux-amd64.tar.gz &&
@@ -15,6 +15,7 @@ echo "export GOPATH" >> ~/.bashrc &&
 echo "PATH=\$PATH:\$GOPATH/bin" >> ~/.bashrc &&
 echo "PATH=\$PATH:/usr/local/go/bin" >> ~/.profile &&
 source ~/.bashrc &&
+source ~/.profile &&
 sudo rm go1.19.4.linux-amd64.tar.gz;
 printf "\033[0;32mSuccessfully installed!! ** installing Tool! **\033[0m" &&
 sleep 3 &&
