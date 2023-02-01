@@ -21,7 +21,7 @@ printf "\033[0;32mSuccessfully installed!! ** installing Tool! **\033[0m \n" &&
 sleep 3 &&
 go install -v github.com/tomnomnom/waybackurls@latest &&
 go install -v github.com/OWASP/Amass/v3/...@master &&
-go install -v github.com/lukasikic/subzy@latest &&
+go install -v github.com/LukaSikic/subzy@latest &&
 go install -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei@latest &&
 go install -v github.com/projectdiscovery/httpx/cmd/httpx@latest &&
 go install -v github.com/Emoe/kxss@latest &&
