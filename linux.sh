@@ -1,6 +1,6 @@
 #!/bin/bash
 
-printf "\033[0;32mStarting Tool update & upgrade & installing go/python!!\033[0m" &&
+printf "\033[0;32mStarting Tool update & upgrade & installing go/python!!\033[0m \n" &&
 sleep 3 &&
 sudo apt update && sudo apt -y upgrade &&
 sudo apt install -y python3 &&
@@ -17,7 +17,7 @@ echo "PATH=\$PATH:/usr/local/go/bin" >> ~/.profile &&
 source ~/.bashrc &&
 source ~/.profile &&
 sudo rm go1.19.4.linux-amd64.tar.gz;
-printf "\033[0;32mSuccessfully installed!! ** installing Tool! **\033[0m" &&
+printf "\033[0;32mSuccessfully installed!! ** installing Tool! **\033[0m \n" &&
 sleep 3 &&
 go install -v github.com/tomnomnom/waybackurls@latest &&
 go install -v github.com/OWASP/Amass/v3/...@master &&
@@ -43,6 +43,6 @@ cd .. &&
 cd web-screen &&
 npm install &&
 cd .. &&
-printf "\033[0;32mDone :)!! Don't forget To follow me thanks!\033[0m" &&
+printf "\033[0;32mDone :)!! Don't forget To follow me thanks!\033[0m \n" &&
 sleep 2 &&
 exit
