@@ -44,5 +44,5 @@ cd web-screen &&
 npm install &&
 cd .. &&
 printf "\033[0;32mDone :)!! Don't forget To follow me thanks!\033[0m" &&
-sleep 2; &&
+sleep 2 &&
 exit
