@@ -11,11 +11,8 @@ cd HackyTool
 ```
 
 ```
-sudo chmod +x linux.sh
-```
+sudo chmod +x linux.sh && ./linux.sh 
 
-```
-./linux.sh 
 ```
 
 Thank You for use it!
