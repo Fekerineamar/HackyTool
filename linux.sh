@@ -34,10 +34,15 @@ git clone https://github.com/1ndianl33t/Gf-Patterns &&
 git clone --depth 1 https://github.com/sqlmapproject/sqlmap.git sqlmap-dev &&
 git clone https://github.com/devanshbatham/ParamSpider &&
 git clone https://github.com/s0md3v/XSStrike.git &&
+git clone https://github.com/Fekerineamar/web-screen &&
 mkdir ~/.gf &&
 mv Gf-Patterns/*.json ~/.gf &&
 cd ParamSpider &&
 pip3 install -r requirements.txt &&
 cd .. &&
-printf "\033[0;32mDone :)!! Don't forget To follow me thanks!\033[0m"
-sleep 2;
+cd web-screen &&
+npm install &&
+cd .. &&
+printf "\033[0;32mDone :)!! Don't forget To follow me thanks!\033[0m" &&
+sleep 2; &&
+exit
