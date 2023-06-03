@@ -24,6 +24,7 @@ go install -v github.com/owasp-amass/amass/v3/...@master &&
 go install -v github.com/LukaSikic/subzy@latest &&
 go install -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei@latest &&
 go install -v github.com/projectdiscovery/httpx/cmd/httpx@latest &&
+go install github.com/OJ/gobuster/v3@latest &&
 go install -v github.com/Emoe/kxss@latest &&
 go install -v github.com/tomnomnom/gf@latest &&
 go install -v github.com/hahwul/dalfox/v2@latest &&
