@@ -29,6 +29,7 @@ go install github.com/OJ/gobuster/v3@latest &&
 go install -v github.com/Emoe/kxss@latest &&
 go install -v github.com/tomnomnom/gf@latest &&
 go install -v github.com/hahwul/dalfox/v2@latest &&
+go install github.com/lc/gau/v2/cmd/gau@latest &&
 pip install dirsearch &&
 pip install uro && 
 pip install arjun &&
