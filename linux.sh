@@ -17,9 +17,9 @@ echo "PATH=\$PATH:/usr/local/go/bin" >> ~/.profile &&
 source ~/.bashrc &&
 source ~/.profile &&
 sudo rm go1.20.4.linux-amd64.tar.gz;
-printf "\033[0;32mSuccessfully installed!! ** installing Tool! **\033[0m \n" &&
+printf "\033[0;32mSuccessfully installed!! ** Installing Tool! **\033[0m \n" &&
 sleep 3 &&
-go install -v github.com/tomnomnom/waybackurls@latest &&
+go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest
 go install -v github.com/owasp-amass/amass/v3/...@master &&
 go install -v github.com/LukaSikic/subzy@latest &&
 go install -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei@latest &&
