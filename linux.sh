@@ -24,11 +24,9 @@ go install -v github.com/owasp-amass/amass/v3/...@master &&
 go install -v github.com/LukaSikic/subzy@latest &&
 go install -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei@latest &&
 go install -v github.com/projectdiscovery/httpx/cmd/httpx@latest &&
-go install github.com/hakluke/hakrawler@latest &&
-go install github.com/OJ/gobuster/v3@latest &&
-go install -v github.com/Emoe/kxss@latest &&
+go install github.com/projectdiscovery/katana/cmd/katana@latest &&
+go install -v github.com/projectdiscovery/naabu/v2/cmd/naabu@latest &&
 go install -v github.com/tomnomnom/gf@latest &&
-go install -v github.com/hahwul/dalfox/v2@latest &&
 go install github.com/lc/gau/v2/cmd/gau@latest &&
 pip install dirsearch &&
 pip install uro && 
@@ -37,14 +35,11 @@ git clone https://github.com/1ndianl33t/Gf-Patterns &&
 git clone --depth 1 https://github.com/sqlmapproject/sqlmap.git sqlmap-dev &&
 git clone https://github.com/devanshbatham/ParamSpider &&
 git clone https://github.com/s0md3v/XSStrike.git &&
-git clone https://github.com/Fekerineamar/web-screen &&
 mkdir ~/.gf &&
 mv Gf-Patterns/*.json ~/.gf &&
+rm Gf-Patterns &&
 cd ParamSpider &&
 pip3 install -r requirements.txt &&
-cd .. &&
-cd web-screen &&
-npm install &&
 cd .. &&
 printf "\033[0;32mDone :)!! Don't forget To follow me thanks!\033[0m \n" &&
 sleep 2 &&
