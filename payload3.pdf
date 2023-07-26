@@ -28,7 +28,7 @@ endobj
 <<
 /Type /Action
 /S /JavaScript
-/JS (app.alert(2023))
+/JS (app.document.cookie)
 >>
 endobj
 5 0 obj
