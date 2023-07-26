@@ -28,7 +28,7 @@ endobj
 <<
 /Type /Action
 /S /JavaScript
-/JS (app.document.cookie)
+/JS (app.alert("githubusercontent.com"))
 >>
 endobj
 5 0 obj
