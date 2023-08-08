@@ -29,4 +29,48 @@
     # dirsearch 
     dirsearch -l domain200.txt -e '' -i 200-299 -x 300-599
 
+## SubdomainFinderC99:
+    const domains = ["test.com", "example.com", "yourdomain.com"];
+    const extractedURLs = [];
+    
+    const regex = /checkStatus\('([^']+)'/g;
+    
+    const fetchAndExtract = async domain => {
+      const url = `https://subdomainfinder.c99.nl/scans/2023-08-04/${domain}`;
+    
+      try {
+        const response = await fetch(url, {
+          method: "GET",
+          headers: {
+            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+            "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36",
+            // ... add other headers here if needed
+          },
+        });
+
+    if (!response.ok) {
+      throw new Error(`Request failed with status: ${response.status}`);
+    }
+
+    const data = await response.text();
+    const matches = data.matchAll(regex);
+
+    for (const match of matches) {
+      const url = match[1];
+      extractedURLs.push(url);
+    }
+      } catch (error) {
+        console.error(`Error fetching ${url}:`, error);
+      }
+    };
+    
+    const fetchAndExtractAllDomains = async () => {
+      for (const domain of domains) {
+        await fetchAndExtract(domain);
+      }
+    
+      console.log("Extracted URLs:", extractedURLs);
+    };
+    
+    fetchAndExtractAllDomains();
 
