@@ -6,6 +6,7 @@ sudo apt update && sudo apt -y upgrade &&
 sudo apt install -y python3 &&
 sudo apt install -y python3-pip &&
 sudo apt install -y nmap &&
+sudo apt install -y libpcap-dev &&
 wget https://go.dev/dl/go1.20.4.linux-amd64.tar.gz && 
 sudo rm -rf /usr/local/go && 
 sudo tar -C /usr/local -xzf go1.20.4.linux-amd64.tar.gz &&
