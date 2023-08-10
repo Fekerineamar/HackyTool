@@ -19,7 +19,7 @@
     cat domain.txt | httpx -path "/wp-admin/admin-ajax.php?action=ptp_design4_color_columns&post_id=1&column_names=%3Ch1%3EAkira%3C/h1%3E" -ms "<h1>Akira</h1>" -fe "Location: .*<h1>Akira</h1>.*" -t 200 -mc 200
 
 ## Telerik RCE(CVE-2017-11317)
-    cat domain.txt | httpx -path "/Telerik.Web.UI.WebResource.axd?type=rau" -ms "message" -t 200 -mc 200
+    cat subs.txt | /workspace/go/bin/httpx -path "/Telerik.Web.UI.WebResource.axd?type=rau" -ms '{ "message" : "RadAsyncUpload handler is registered succesfully, however, it may not be accessed directly." }' -t 200 -o telerik2.txt
 
     
 ## Open Redirect
