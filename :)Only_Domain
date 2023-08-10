@@ -1,1 +1,0 @@
-awk -F '.' '{domain=$(NF-1) FS $NF; if (!domains[domain]++) print domain}' input.txt | sort -u
