@@ -30,8 +30,11 @@
 
 
 ## Nuclie
-    
+    cat domains.txt | nuclei -nt -es info -ept ssl -o data.txt
+    nuclei -l domains.txt -nt -o data.txt
+    nuclei -l domains.txt -t cves/2023 -o data.txt
     nuclei -l domains.txt -es info -ept ssl -o data.txt
-    # dirsearch 
+    
+# dirsearch 
     dirsearch -l domain200.txt -e '' -i 200-299 -x 300-599
 
