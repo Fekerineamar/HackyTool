@@ -25,7 +25,7 @@ go install -v github.com/owasp-amass/amass/v3/...@master &&
 go install -v github.com/LukaSikic/subzy@latest &&
 go install -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei@latest &&
 go install -v github.com/projectdiscovery/httpx/cmd/httpx@latest &&
-go install github.com/projectdiscovery/katana/cmd/katana@latest &&
+go install -v github.com/projectdiscovery/katana/cmd/katana@latest &&
 go install -v github.com/projectdiscovery/naabu/v2/cmd/naabu@latest &&
 go install -v github.com/tomnomnom/gf@latest &&
 go install github.com/lc/gau/v2/cmd/gau@latest &&
