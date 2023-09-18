@@ -19,6 +19,9 @@
      uro < domains.txt | grep -E 'https?://[^?]+\?[a-zA-Z0-9_]+=[^&]+(&[a-zA-Z0-9_]+=[^&]+)*' | qsreplace %22%3E%3Ch1%3EAkira%3C%2Fh1%3E > domain4httpx.txt
 
      cat domain4httpx.txt | httpx -ms "<h1>Akira</h1>" -ct -t 200 -o bounty.txt
+
+    #Note: have a server? use:
+    cat domains.txt | gau --providers wayback,commoncrawl,otx,urlscan --mt text/html,application/xhtml+xml,application/xml,application/xml+html,application/vnd.wap.xhtml+xml,application/xhtml+xml,text/xml --subs --fp | uro | grep -E 'https?://[^?]+\?[a-zA-Z0-9_]+=[^&]+(&[a-zA-Z0-9_]+=[^&]+)*' | qsreplace %22%3E%3Ch1%3EAkira%3C%2Fh1%3E | httpx -ms "<h1>Akira</h1>" -ct -t 200 -o bounty.txt
    
    ### oneLine:
        cat Domains.txt | gau | gf xss | sed "s/=.*/=/" | sed "s/URL: //" | uro | httpx -o domain4xss.txt
