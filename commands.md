@@ -27,7 +27,19 @@
     cat Domains.txt | gau | gf xss | sed "s/=.*/=/" | sed "s/URL: //" | uro | httpx -o domain4xss.txt
 
     cat params.js [.py|.go|paramspider.py] | uro --filter hasparams -b jpg png js json pdf txt -o 4xss.txt
+## subdomain enumeration
+    amass enum -active -d <DOMAIN> -dir amass_active/<DOMAIN>/
+    amass enum -passive -d <DOMAIN> -dir amass_passive/<DOMAIN>/
+    assetfinder <DOMAIN> | tee ./subdomains/assetfinder.txt
 
+## web crawlling
+    for i in $(cat hosts-urls.txt); do katana -u $i >> ./katana_rzlts.txt; done
+    cat hosts-urls.txt | hakrawler -timeout 5 -subs | tee ./hakrawler_rzlts.txt
+    cat hosts-live.txt | gau --threads 15 | tee ./gau_rzlts.txt
+    cat hosts-live.txt | waybackurls | tee ./wburls_rzlts.txt
+
+## filtering
+        cat katana_rzlts.txt hakrawler_rzlts.txt gau_rzlts.txt wburls_rzlts.txt | sort -u > uniq.txt; cat uniq.txt | grep "<DOMAIN>" | grep "\?" > 4xss.txt
 ## wordpressXss:
     cat domain.txt | httpx -path "/wp-admin/admin-ajax.php?action=ptp_design4_color_columns&post_id=1&column_names=%3Ch1%3EAkira%3C/h1%3E" -ms "<h1>Akira</h1>" -fe "Location: .*<h1>Akira</h1>.*" -t 200 -mc 200
 
