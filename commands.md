@@ -58,7 +58,9 @@
     
     echo "https://web.archive.org/cdx/search/cdx?url=*.example.com&fl=original&collapse=urlkey" | httpx -er '(https?://[^&\s]+)[^&\s]*(\?|&)(outurl=|redirectionURL=|refURL=|returnURL=|siteurl=|targetURL=|urlTo=|redirectLocation=|redirectPage=|redirectPath=|redirectUrlTo=|urlRedirect=|redirectTo=|linkTo=|urlOut=|outboundUrl=|navTo=|jumpTo=|clickTo=|linkURL=|directTo=|moveTo=|outgoing_url=|outbound_link=|location_to=|forward=|from_url=|go=|goto=|host=|html=|image_url=|img_url=|load_file=|load_url=|login?to=|login_url=|logout=|navigation=|next=|next_page=|out=|page=|page_url=|path=|port=|redir=|redirect=|redirect_to=|redirect_uri=|redirect_url=|reference=|return=|returnTo=|return_path=|return_to=|return_url=|rt=|rurl=|show=|site=|target=|to=|uri=|url=|val=|validate=|view=|window=|location=|link=|click=|move=|jump=|follow=|nav=|ref=|locationURL=|redirectURL=|redirect_to_url=|pageurl=|navigate=|returnUrl=|redirectlink=|redirection=|referral=|direct=|forwardto=|gotoURL=|outlink=|targ=|linkto=|sendto=|dest=|destURL=|destination=|finalURL=|newUrl=|goToUrl=|navToURL=|referralURL=|returnURI=|uri_redirect=|path_redirect=|url_redirect=|location_redirect=|returnPath=|returnToURL=|outgoingURL=|redirectURI=|redirect_path=|redirect_url_path=|targetPath=|clickTarget=|followURL=|linkOut=|location_href=|jumpURL=|returnLink=|refLink=|sendURL=|url_destination=|redirect_destination=|goto_url=|forward_url=|nav_to=|move_to_url=|url_location=|redirect_location=|target_url=|target_link=|return_url_path=|return_to_path=|outgoing_link=|link_destination=|click_destination=|redirector=|redirection_link=|uri_location=|url_path=|path_to=|path_redirector=|go_url=|forward_link=|location_path=)[^&\s]*' -json | jq '.extracts[]' | sed 's/  "//g'| sed 's/"//g' | sed 's/\[//g' | sed 's/\]//g' | sed 's/,//g' > openredirect.txt
 
-
+## Host:
+    cat domains.txt | httpx -H "Host: example.com" -t 200 -ms 'example.com' -mc 200 -fe "Location: .*example.com.*"
+    
 ## Nuclie
     cat domains.txt | nuclei -nt -es info -ept ssl -o data.txt
     nuclei -l domains.txt -nt -o data.txt
