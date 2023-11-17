@@ -40,6 +40,10 @@
 
 ## filtering
         cat katana_rzlts.txt hakrawler_rzlts.txt gau_rzlts.txt wburls_rzlts.txt | sort -u > uniq.txt; cat uniq.txt | grep "<DOMAIN>" | grep "\?" > 4xss.txt
+
+## only params:
+    grep -E -o 'https?://[^ ]+\?.+' filename
+
 ## wordpressXss:
     cat domain.txt | httpx -path "/wp-admin/admin-ajax.php?action=ptp_design4_color_columns&post_id=1&column_names=%3Ch1%3EAkira%3C/h1%3E" -ms "<h1>Akira</h1>" -fe "Location: .*<h1>Akira</h1>.*" -t 200 -mc 200
 
