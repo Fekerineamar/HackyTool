@@ -51,7 +51,7 @@
     cat subs.txt | httpx -path "/Telerik.Web.UI.WebResource.axd?type=rau" -ms '"RadAsyncUpload handler is registered succesfully' -t 200 -o telerik2.txt
     
 ## zoneminder_RCE CVE-2023-26035
-    cat alldomains.txt | httpx -path "/index.php" -ms "name=__csrf_magic" -t 200 -o CVE-2023-26035.txt
+    cat alldomains.txt | httpx -path "/index.php" -ms 'name="__csrf_magic"' -t 200 -o CVE-2023-26035.txt
 
 ## CVE-2023-38388
     cat privates/domainsroot.txt | httpx -path "/wp-content/plugins/jupiterx-core/readme.txt" -ms "Jupiter X Core" -o jupiter.txt
