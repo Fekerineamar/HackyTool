@@ -59,6 +59,9 @@
 ## CVE-2023-4596
     cat bugbounty/subs.txt | httpx -path '/wp-content/plugins/forminator/readme.txt' -ms  "Stable tag: 1\.([0-2][0-9]|3[0-6])\.[0-9]+" -o "forminator.txt"
 
+## fusion-CVE-2022-1386.txt
+    cat alldomains.txt | httpx -path "/wp-content/plugins/fusion-builder/readme.txt" -ms "Builder =" -o fusion-CVE-2022-1386.txt
+    
 ## TeamCity
     cat alldomains.txt | httpx -path "/login.html" -ms "log in to teamcity" -o teamcity.txt
 
