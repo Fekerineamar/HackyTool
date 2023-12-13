@@ -53,7 +53,10 @@
 ## zoneminder_RCE CVE-2023-26035
     cat alldomains.txt | httpx -path "/index.php" -ms "__csrf_magic" -t 200 -o CVE-2023-26035.txt
 
-## teamcity
+## CVE-2023-38388
+    cat privates/domainsroot.txt | httpx -path "/wp-content/plugins/jupiterx-core/readme.txt" -ms "Jupiter X Core" -o jupiter.txt
+
+## TeamCity
     cat alldomains.txt | httpx -path "/login.html" -ms "log in to teamcity" -o teamcity.txt
 
 ## Elementor Xss
