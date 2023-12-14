@@ -47,6 +47,9 @@
 ## wordpressXss:
     cat domain.txt | httpx -path "/wp-admin/admin-ajax.php?action=ptp_design4_color_columns&post_id=1&column_names=%3Ch1%3EAkira%3C/h1%3E" -ms "<h1>Akira</h1>" -fe "Location: .*<h1>Akira</h1>.*" -t 200 -mc 200
 
+## CVE-2023-0159-WPBakery
+    cat alldomains.txt | httpx -path "/wp-content/plugins/wolf-visual-composer/readme.txt" -ms "Stable tag: 1." -o WPBakery.txt
+    
 ## CVE-2017-11317-Telerik
     cat subs.txt | httpx -path "/Telerik.Web.UI.WebResource.axd?type=rau" -ms '"RadAsyncUpload handler is registered succesfully' -t 200 -o telerik2.txt
     
