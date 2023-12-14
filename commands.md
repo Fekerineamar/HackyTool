@@ -60,7 +60,7 @@
     cat privates/domainsroot.txt | httpx -path "/wp-content/plugins/jupiterx-core/readme.txt" -ms "Jupiter X Core" -o jupiter.txt
 
 ## CVE-2023-4596-forminator
-    cat bugbounty/subs.txt | httpx -path '/wp-content/plugins/forminator/readme.txt' -ms  "Stable tag: 1\.([0-2][0-9]|3[0-6])\.[0-9]+" -o "forminator.txt"
+    cat bugbounty/subs.txt | httpx -path '/wp-content/plugins/forminator/readme.txt' -ms  "Stable tag: 1\.(2[0-4]|[01]?[0-9])\.[0-9]" -o "forminator.txt"
 
 ## CVE-2022-1386-fusion-builder
     cat alldomains.txt | httpx -path "/wp-content/plugins/fusion-builder/readme.txt" -ms "Builder =" -o fusion-CVE-2022-1386.txt
