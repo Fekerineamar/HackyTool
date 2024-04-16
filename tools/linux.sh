@@ -9,7 +9,7 @@ sudo apt install -y nmap &&
 sudo apt install -y libpcap-dev &&
 wget https://go.dev/dl/go1.22.2.linux-amd64.tar.gz && 
 sudo rm -rf /usr/local/go && 
-sudo tar -C /usr/local -xzf go1.20.4.linux-amd64.tar.gz &&
+sudo tar -C /usr/local -xzf go1.22.2.linux-amd64.tar.gz &&
 mkdir -p ~/.go &&
 echo "GOPATH=$HOME/.go" >> ~/.bashrc &&
 echo "export GOPATH" >> ~/.bashrc &&
@@ -17,7 +17,7 @@ echo "PATH=\$PATH:\$GOPATH/bin" >> ~/.bashrc &&
 echo "PATH=\$PATH:/usr/local/go/bin" >> ~/.profile &&
 source ~/.bashrc &&
 source ~/.profile &&
-sudo rm go1.20.4.linux-amd64.tar.gz;
+sudo rm go1.22.2.linux-amd64.tar.gz;
 printf "\033[0;32mSuccessfully installed!! ** Installing Tool! **\033[0m \n" &&
 sleep 3 &&
 go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest
